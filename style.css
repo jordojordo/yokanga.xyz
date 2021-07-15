@@ -17,5 +17,8 @@ html {
 #main video {
   width: 75%;
   height: auto;
+  max-width: 725px;
+  max-height: 540px;
   box-shadow: 19px 17px #060606;
+  object-fit: cover;
 }
