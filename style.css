@@ -15,7 +15,7 @@ html {
 }
 
 #main video {
-  width: 725px;
-  height: 540px;
+  width: 75%;
+  height: auto;
   box-shadow: 19px 17px #060606;
 }
