@@ -1,0 +1,19 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+#main {
+  height: 100%;
+  background: repeat url("../images/sea-view/water.gif") hsl(0, 0%, 2%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
