@@ -10,6 +10,7 @@ html {
   background-size: 6.25px 3.125px;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -21,4 +22,21 @@ html {
   max-height: 540px;
   box-shadow: 19px 17px #060606;
   object-fit: cover;
+}
+
+#main video:focus {
+  outline: none;
+}
+
+footer {
+  position: absolute;
+  left: 50%;
+  bottom: 33px;
+  padding: 0;
+}
+
+#link {
+  position: relative;
+  left: -50%;
+  background-color: black;
 }
