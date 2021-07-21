@@ -43,15 +43,17 @@
       const audioButton = document.getElementById("sphere");
       const autoAudio = document.getElementById("autoplay-audio");
 
-      if (!autoAudio.paused || autoAudio.currentTime) {
-        const audioEl = new Audio("https://jordo.in/music?song=akiko.ogg");
-      } else {
-        const handleClick = () => {
+      const handleClick = () => {
+        if (!autoAudio.paused || autoAudio.currentTime) {
+          const audioEl = new Audio("https://jordo.in/music?song=akiko.ogg");
           audioEl.play();
           linkOut.classList.remove("hidden");
           linkOut.classList.add("flex");
-        };
-      }
+        } else {
+          linkOut.classList.remove("hidden");
+          linkOut.classList.add("flex");
+        }
+      };
     </script>
   </body>
 </html>
