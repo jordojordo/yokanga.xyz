@@ -4,27 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jerry's Trial</title>
+    <title>Serenity&trade; Fully Consumed</title>
     <meta
       name="description"
-      content="Jerry's lifelong dream of becoming an angler for the feared Bait Beasts of McCall's Bay is finally within his grasp. In order to join the ranks he must prove himself a worthy piscator."
+      content="Do you ever find yourself dissatisfied with your cubical walls? Well now you don't have to worry about how much PTO you have left for the year. Our cruises can be enjoyed year round for as little as 1 minute a day!"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section id="main">
-      <video controls playsinline loop poster="images/static.webp">
-        <source
-          src="https://jordo.in/stream?video=fish.webm"
-          type="video/webm; codecs=vp9,vorbis"
-        />
-        <source src="https://jordo.in/stream?video=fish.mp4" type="video/mp4" />
-      </video>
-      <footer>
-        <a id="link" href="./b/sea-view.html">
-          <img src="./images/sparkle.gif" alt="">
+      <div>
+        <button id="audio-button" onclick="handleClick()">consume</button>
+      </div>
+      <div id="serene" class="hidden">
+        <a href="./b/jerry.html">
+          <img
+            id="jerry"
+            src="./images/sea-view/serene.gif"
+            alt="kick back and enjoy the view"
+          />
         </a>
-      </footer>
+        <a href="./a/based.html">
+          <img
+            id="based"
+            src="./images/sea-view/serene.webp"
+            alt="let your worries drift away"
+          />
+        </a>
+        <a href="./m/mystique.html">
+          <img
+            id="mystique"
+            src="./images/sea-view/serene.webp"
+            alt="father captial is here for you"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="./images/sea-view/serene.webp"
+            alt="crack open a cold one"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="./images/sea-view/serene.webp"
+            alt="stop living with regrets"
+          />
+        </a>
+        <a href="#">
+          <img src="./images/sea-view/serene.webp" alt="treat yourself" />
+        </a>
+      </div>
     </section>
+    <script>
+      const serene = document.getElementById("serene");
+      const audioButton = document.getElementById("audio-button");
+      const audioEl = new Audio(
+        "https://jordo.in/music?song=sea-view-gardens.ogg"
+      );
+
+      const handleClick = () => {
+        serene.classList.remove("hidden");
+        serene.classList.add("flex");
+        audioButton.classList.add("hidden");
+        audioEl.play();
+      };
+    </script>
   </body>
 </html>

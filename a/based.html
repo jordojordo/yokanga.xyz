@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Dorian Den</title>
     <meta
       name="description"
-      content=""
+      content="Corruption runs rampant in the den. You're going to need something sharp."
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -16,7 +16,7 @@
       <source src="https://jordo.in/music?song=akiko.ogg" type="audio/ogg">
     </audio>
     <section id="main">
-      <a href="#">
+      <a id="sphere" onclick="handleClick()">
         <figure class="sphere"></figure>
       </a>
       <pre>
@@ -32,5 +32,24 @@
        ██████████████░      █████░   █████░      ██████████████░        ████████████░      ██████████████░
       </pre>
     </section>
+    <footer id="link-out" class="hidden">
+      <a id="link" href="../index.html">
+        <img src="../images/gundam.gif" alt="">
+      </a>
+    </footer>
+
+    <script>
+      const linkOut = document.getElementById("link-out");
+      const audioButton = document.getElementById("sphere");
+      const audioEl = new Audio(
+        "https://jordo.in/music?song=akiko.ogg"
+      );
+
+      const handleClick = () => {
+        audioEl.play();
+        linkOut.classList.remove("hidden");
+        linkOut.classList.add("flex");
+      };
+    </script>
   </body>
 </html>
