@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <audio autoplay loop>
-      <source src="https://jordo.in/music?song=akiko.ogg" type="audio/ogg">
+    <audio id="autoplay-audio" autoplay loop>
+      <source src="https://jordo.in/music?song=akiko.ogg" type="audio/ogg" />
     </audio>
     <section id="main">
       <a id="sphere" onclick="handleClick()">
@@ -34,22 +34,24 @@
     </section>
     <footer id="link-out" class="hidden">
       <a id="link" href="../index.html">
-        <img src="../images/gundam.gif" alt="">
+        <img src="../images/gundam.gif" alt="" />
       </a>
     </footer>
 
     <script>
       const linkOut = document.getElementById("link-out");
       const audioButton = document.getElementById("sphere");
-      const audioEl = new Audio(
-        "https://jordo.in/music?song=akiko.ogg"
-      );
+      const autoAudio = document.getElementById("autoplay-audio");
 
-      const handleClick = () => {
-        audioEl.play();
-        linkOut.classList.remove("hidden");
-        linkOut.classList.add("flex");
-      };
+      if (!autoAudio.paused || autoAudio.currentTime) {
+        const audioEl = new Audio("https://jordo.in/music?song=akiko.ogg");
+      } else {
+        const handleClick = () => {
+          audioEl.play();
+          linkOut.classList.remove("hidden");
+          linkOut.classList.add("flex");
+        };
+      }
     </script>
   </body>
 </html>
