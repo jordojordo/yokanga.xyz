@@ -16,6 +16,7 @@ html {
   animation: slide 13s linear infinite;
   -webkit-animation: slide 13s linear infinite;
 }
+
 #main video {
   width: 100%;
   height: auto;
@@ -54,6 +55,6 @@ footer {
   height: 75px;
 }
 
-#link:hover {
+#link:hover, #main video:hover {
   cursor: url(../images/m/circle.png), pointer;
 }

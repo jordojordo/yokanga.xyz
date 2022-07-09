@@ -17,7 +17,7 @@
         <button id="audio-button" onclick="handleClick()">consume</button>
       </div>
       <div id="serene" class="hidden">
-        <a href="./b/jerry.html">
+        <a href="./j/jerry.html">
           <img
             id="jerry"
             src="./images/sea-view/serene.gif"
@@ -38,13 +38,14 @@
             alt="father captial is here for you"
           />
         </a>
-        <a href="#">
+        <a href="./p/picnic.html">
           <img
+            id="picnic"
             src="./images/sea-view/serene.webp"
             alt="crack open a cold one"
           />
         </a>
-        <a href="#">
+       <!-- <a href="#">
           <img
             src="./images/sea-view/serene.webp"
             alt="stop living with regrets"
@@ -52,15 +53,13 @@
         </a>
         <a href="#">
           <img src="./images/sea-view/serene.webp" alt="treat yourself" />
-        </a>
+        </a>-->
       </div>
     </section>
     <script>
       const serene = document.getElementById("serene");
       const audioButton = document.getElementById("audio-button");
-      const audioEl = new Audio(
-        "https://jordo.in/music?song=sea-view-gardens.ogg"
-      );
+      const audioEl = new Audio("http://192.168.1.106:3000/music?song=sea-view-gardens.ogg");
 
       const handleClick = () => {
         serene.classList.remove("hidden");

@@ -1,0 +1,60 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+#main {
+  height: 100%;
+/*   background: repeat url("../images/m/cross.png") hsl(0, 0%, 2%); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: slide 13s linear infinite;
+  -webkit-animation: slide 13s linear infinite;
+}
+
+#main video {
+  width: 100%;
+  height: auto;
+  max-width: 725px;
+  max-height: 540px;
+  box-shadow: -19px 17px #3B2D0E;
+  object-fit: cover;
+}
+
+#main video:focus {
+  outline: none;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0px 100px;
+  }
+  to {
+    background-position: -100px;
+  }
+}
+
+footer {
+  position: absolute;
+  left: 50%;
+  bottom: 33px;
+  padding: 0;
+}
+
+#link {
+  position: relative;
+  left: -50%;
+}
+
+#link img {
+  height: 75px;
+}
+
+#link:hover, #main video:hover {
+/*   cursor: url(../images/m/circle.png), pointer; */
+}

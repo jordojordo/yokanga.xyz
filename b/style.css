@@ -2,30 +2,74 @@ body,
 html {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 #main {
   height: 100%;
-  background: repeat url("../images/b/down.gif") hsl(0, 0%, 2%);
-  background-size: 6.25px 3.125px;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #060606;
 }
 
-#main video {
-  width: 75%;
-  height: auto;
-  max-width: 725px;
-  max-height: 540px;
-  box-shadow: 19px 17px #060606;
-  object-fit: cover;
+@keyframes slide {
+  from {
+    background-position: -100px -100px;
+  }
+  to {
+    background-position: center;
+  }
 }
 
-#main video:focus {
-  outline: none;
+#main {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #060606 url(../images/a/diag.png);
+  animation: slide 30s linear infinite;
+  -webkit-animation: slide 30s linear infinite;
+}
+
+@keyframes color-change {
+  0%,
+  100% {
+    color: #33a81d;
+  }
+  50% {
+    color: #9b12f5;
+  }
+}
+
+#main pre {
+  animation: color-change 5s linear infinite;
+  -webkit-animation: color-change 5s linear infinite;
+}
+
+#main button {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: none;
+}
+
+#main button:hover, footer .link:hover {
+  cursor: url(../images/a/doom.gif), pointer;
+}
+
+.sphere {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 120%,
+    #f9fbea,
+    #c6b17d 80%,
+    #99642d 100%
+  );
 }
 
 footer {
@@ -42,5 +86,13 @@ footer {
 }
 
 #link:hover {
-  cursor: url(../images/b/point.gif), pointer;
+  cursor: url(../images/a/doom.gif), pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
 }

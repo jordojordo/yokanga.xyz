@@ -2,11 +2,10 @@ body,
 html {
   height: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 #main {
-  height: 100%;
+  height: auto;
   background: repeat url("./images/sea-view/water.gif") hsl(0, 0%, 2%);
   min-height: 100vh;
   display: flex;
@@ -33,7 +32,7 @@ html {
   height: 100%;
 }
 
-#serene a:hover {
+#serene a:hover, #audio-button:hover  {
   cursor: url(./images/sword-cursor.gif), pointer;
 }
 
@@ -47,6 +46,10 @@ html {
 
 #mystique:hover {
   content: url(./images/sea-view/eternal-question.webp);
+}
+
+#picnic:hover {
+  content: url(./images/sea-view/freestyle.webp);
 }
 
 .hidden {

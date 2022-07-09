@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <meta
+      name="description"
+      content=""
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>    
+    <section id="main">
+      <video autoplay controls playsinline loop poster="../images/static.webp">
+        <source
+          src="http://192.168.1.106:3000/stream?video=picnic.webm"
+          type="video/webm; codecs=vp9,vorbis"
+        />
+        <source src="http://192.168.1.106:3000/stream?video=picnic.mp4" type="video/mp4" />
+      </video>
+      <footer>
+        <a id="link" href="../index.html">
+          <img src="../images/p/running.gif" alt="">
+        </a>
+      </footer>
+    </section>
+  </body>
+</html>
