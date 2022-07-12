@@ -7,14 +7,12 @@ html {
 
 #main {
   height: 100%;
-/*   background: repeat url("../images/m/cross.png") hsl(0, 0%, 2%); */
+  background: repeat url("../images/p/usflag.gif") hsl(240, 50%, 60%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: slide 13s linear infinite;
-  -webkit-animation: slide 13s linear infinite;
 }
 
 #main video {
@@ -22,21 +20,12 @@ html {
   height: auto;
   max-width: 725px;
   max-height: 540px;
-  box-shadow: -19px 17px #3B2D0E;
+  box-shadow: -19px -17px #818181;
   object-fit: cover;
 }
 
 #main video:focus {
   outline: none;
-}
-
-@keyframes slide {
-  from {
-    background-position: 0px 100px;
-  }
-  to {
-    background-position: -100px;
-  }
 }
 
 footer {
