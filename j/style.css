@@ -6,7 +6,7 @@ html {
 
 #main {
   height: 100%;
-  background: repeat url("../images/b/down.gif") hsl(0, 0%, 2%);
+  background: repeat url("../images/j/down.gif") hsl(0, 0%, 2%);
   background-size: 6.25px 3.125px;
   min-height: 100vh;
   display: flex;
@@ -42,5 +42,5 @@ footer {
 }
 
 #link:hover, #main video:hover {
-  cursor: url(../images/b/point.gif), pointer;
+  cursor: url(../images/j/point.gif), pointer;
 }
