@@ -13,7 +13,7 @@
   </head>
   <body>
 <!--    <audio id="akiko" autoplay loop>
-      <source src="http://127.0.0.1:3000/music?song=akiko.ogg" type="audio/ogg" />
+      <source src="http://172.17.0.2:3000/music?song=akiko.ogg" type="audio/ogg" />
     </audio>-->
     <section id="main">
         <button onclick="handleClick()">
@@ -40,7 +40,7 @@
     </footer>
 
     <script>
-      const akiko = new Audio("http://127.0.0.1:3000/music?song=akiko.ogg");
+      const akiko = new Audio("http://172.17.0.2:3000/music?song=akiko.ogg");
 
       const handleClick = () => {
         akiko.play();
