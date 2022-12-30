@@ -50,7 +50,7 @@
     <script>
       const serene = document.getElementById("serene");
       const audioButton = document.getElementById("audio-button");
-      const audioEl = new Audio(`https://96.126.104.166/api/v1/namespaces/default/services/http:daphine-svc:8080/proxy/music?song=sea-view-gardens.ogg`);
+      const audioEl = new Audio(`https://daphine-svc.default.svc.cluster.local/music?song=sea-view-gardens.ogg`);
 
       const handleClick = () => {
         serene.classList.remove("hidden");

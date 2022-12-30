@@ -13,7 +13,7 @@
   </head>
   <body>
 <!--    <audio id="akiko" autoplay loop>
-      <source src="https://96.126.104.166/api/v1/namespaces/default/services/http:daphine-svc:8080/proxy/music?song=akiko.ogg" type="audio/ogg" />
+      <source src="https://daphine-svc.default.svc.cluster.local/music?song=akiko.ogg" type="audio/ogg" />
     </audio>-->
     <section id="main">
         <button onclick="handleClick()">
@@ -40,7 +40,7 @@
     </footer>
 
     <script>
-      const akiko = new Audio("https://96.126.104.166/api/v1/namespaces/default/services/http:daphine-svc:8080/proxy/music?song=akiko.ogg");
+      const akiko = new Audio("https://daphine-svc.default.svc.cluster.local/music?song=akiko.ogg");
 
       const handleClick = () => {
         akiko.play();
