@@ -14,10 +14,27 @@ html {
   background-color: #060606;
 }
 
+@media screen and (max-width: 920px) {
+  #main {
+    flex-direction: column;
+  }
+
+  footer {
+    left: 40% !important;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  pre {
+    white-space: normal;
+  }
+}
+
 @keyframes slide {
   from {
     background-position: -100px -100px;
   }
+
   to {
     background-position: center;
   }
@@ -34,10 +51,12 @@ html {
 }
 
 @keyframes color-change {
+
   0%,
   100% {
     color: #33a81d;
   }
+
   50% {
     color: #9b12f5;
   }
@@ -55,7 +74,8 @@ html {
   background: none;
 }
 
-#main button:hover, footer .link:hover {
+#main button:hover,
+footer .link:hover {
   cursor: url(../images/b/doom.gif), pointer;
 }
 
@@ -64,12 +84,10 @@ html {
   height: 100%;
   margin: 0;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 50% 120%,
-    #f9fbea,
-    #c6b17d 80%,
-    #99642d 100%
-  );
+  background: radial-gradient(circle at 50% 120%,
+      #f9fbea,
+      #c6b17d 80%,
+      #99642d 100%);
 }
 
 footer {

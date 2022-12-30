@@ -2,7 +2,6 @@ body,
 html {
   height: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 #main {
@@ -16,11 +15,11 @@ html {
 }
 
 #main video {
-  width: 100%;
+  width: 75%;
   height: auto;
   max-width: 725px;
   max-height: 540px;
-  box-shadow: -19px -17px #818181;
+  box-shadow: 19px 17px #818181;
   object-fit: cover;
 }
 
@@ -44,6 +43,7 @@ footer {
   height: 75px;
 }
 
-#link:hover, #main video:hover {
-/*   cursor: url(../images/m/circle.png), pointer; */
+#link:hover,
+#main video:hover {
+  cursor: url(../images/m/circle.png), pointer;
 }

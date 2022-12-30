@@ -2,7 +2,6 @@ body,
 html {
   height: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 #main {
@@ -18,7 +17,7 @@ html {
 }
 
 #main video {
-  width: 100%;
+  width: 75%;
   height: auto;
   max-width: 725px;
   max-height: 540px;
@@ -34,6 +33,7 @@ html {
   from {
     background-position: 0px 100px;
   }
+
   to {
     background-position: -100px;
   }
@@ -55,6 +55,7 @@ footer {
   height: 75px;
 }
 
-#link:hover, #main video:hover {
+#link:hover,
+#main video:hover {
   cursor: url(../images/m/circle.png), pointer;
 }
