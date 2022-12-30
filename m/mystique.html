@@ -15,10 +15,10 @@
     <section id="main">
       <video autoplay controls playsinline loop poster="../images/static.webp">
         <source
-          src="http://saybis.xyz:3000/stream?video=mystique.webm"
+          src="http://${ process.env.DEPLOYMENT_URL }/stream?video=mystique.webm"
           type="video/webm; codecs=vp9,vorbis"
         />
-        <source src="http://saybis.xyz:3000/stream?video=mystique.mp4" type="video/mp4" />
+        <source src="http://${ process.env.DEPLOYMENT_URL }/stream?video=mystique.mp4" type="video/mp4" />
       </video>
       <footer>
         <a id="link" href="../index.html">
