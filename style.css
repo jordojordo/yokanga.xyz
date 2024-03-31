@@ -21,18 +21,30 @@ html {
   justify-content: center;
 }
 
-#serene a {
+#serene #links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#serene #links a {
   width: calc(648px / 1.5);
   height: calc(484px / 1.5);
   margin: 25px;
 }
 
-#serene a img {
+#serene #links a img {
   width: 100%;
   height: 100%;
 }
 
-#serene a:hover, #audio-button:hover  {
+#serene #exit {
+  margin-top: 20px;
+}
+
+#serene #links a:hover,
+#helm:hover,
+#audio-button:hover {
   cursor: url(./images/sword-cursor.gif), pointer;
 }
 
