@@ -1,5 +1,0 @@
-user-agent: *
-Allow: /
-Disallow: /images
-Disallow: /.git*
-Disallow: /Dockerfile
