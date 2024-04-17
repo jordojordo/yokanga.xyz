@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { RouterLink } from 'vue-router';
 
+import { useMediaStore } from '@/stores/mediaStore';
 import { imageLoader } from '@/utils/imageLoader';
 
 import LoadingScreen from '@/components/LoadingScreen.vue';
 
 const isLoading = ref(true);
 const { loadImages, progress } = imageLoader();
+const mediaStore = useMediaStore();
 
 let audioEl: HTMLAudioElement | null = null;
+const SONG_ENDPOINT = '/music?song=akiko.ogg';
 
 function handleClick() {
   if ( audioEl ) {
-    audioEl.play();
+    if ( audioEl.paused ) {
+      audioEl.play();
+    } else {
+      audioEl.pause();
+    }
   }
 }
 
@@ -30,7 +38,24 @@ async function loadResources() {
 
 onMounted(() => {
   loadResources();
-  audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }/music?song=akiko.ogg`);
+  const config = mediaStore.getConfig('based');
+
+  if ( config ) {
+    audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }${ SONG_ENDPOINT }`);
+    audioEl.loop = config.loop;
+
+    if ( mediaStore.routes.based.lastTime > 0 ) {
+      audioEl.currentTime = mediaStore.routes.based.lastTime;
+      audioEl.play();
+    }
+  }
+});
+
+onBeforeUnmount(() => {
+  if ( audioEl ) {
+    mediaStore.setLastTime('based', audioEl.currentTime);
+    audioEl.pause();
+  }
 });
 </script>
 
@@ -55,9 +80,9 @@ onMounted(() => {
   </section>
 
   <footer>
-    <a class="link" href="/">
+    <RouterLink class="link" to="/">
       <img src="/images/b/gundam.gif" />
-    </a>
+    </RouterLink>
   </footer>
 </template>
 
