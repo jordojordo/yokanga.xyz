@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
+import { RouterLink } from 'vue-router';
+
 const props = defineProps<{
   target: string;
   name: string;
@@ -14,9 +16,9 @@ const currentSrc = computed(() => hover.value ? props.hoverSrc : "/images/sea-vi
 </script>
 
 <template>
-  <a 
+  <RouterLink
     class="links"
-    :href="props.target"
+    :to="props.target"
     @mouseover="hover = true"
     @mouseleave="hover = false"
   >
@@ -25,7 +27,7 @@ const currentSrc = computed(() => hover.value ? props.hoverSrc : "/images/sea-vi
       :src="currentSrc"
       :alt="props.alt"
     />
-  </a>
+  </RouterLink>
 </template>
 
 <style scoped>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
+import { useRoute, RouterLink } from 'vue-router';
 
+import { useMediaStore } from '@/stores/mediaStore';
 import { imageLoader } from '@/utils/imageLoader';
 
 import LoadingScreen from '@/components/LoadingScreen.vue';
@@ -12,11 +14,18 @@ const props = defineProps<{
   cursorImage: string;
 }>();
 
+const route = useRoute();
+const routeName = route.name?.toString();
+
 const isLoading = ref(true);
 const { loadImages, progress } = imageLoader();
 
 const DAPHINE_URL = import.meta.env.VITE_DAPHINE_URL;
 const videoPoster = '/images/static.webp';
+
+const mediaStore = useMediaStore();
+const videoEl = ref<HTMLVideoElement | null>(null);
+const VIDEO_ENDPOINT = `/stream?video=${ props.videoName }.webm`
 
 async function loadResources() {
   const images = [
@@ -33,27 +42,54 @@ async function loadResources() {
   }
 }
 
-onMounted(() => {
-  loadResources();
+onMounted(async() => {
+  await loadResources();
+
+  if ( routeName ) {
+    const config = mediaStore.getConfig(routeName);
+
+    if ( config && videoEl.value ) {
+      videoEl.value.src = `${ DAPHINE_URL }${ VIDEO_ENDPOINT }`;
+      videoEl.value.currentTime = config.lastTime;
+
+      videoEl.value.play();
+    }
+  }
+});
+
+onBeforeUnmount(() => {
+  if ( videoEl.value ) {
+    mediaStore.setLastTime(`${ routeName }`, videoEl.value.currentTime);
+  }
+});
+
+watch(videoEl, (newVal, oldVal) => {
+  if ( newVal ) {
+    newVal.onended = () => {
+      if ( mediaStore.routes[`${ routeName }`].loop ) {
+        newVal.play();
+      }
+    };
+  }
 });
 </script>
 
 <template>
   <LoadingScreen v-if="isLoading" :progress="progress" />
-  <section v-else id="main">
+  <section v-else v-show="!isLoading" id="main">
     <div class="video-container">
-      <video autoplay controls playsinline loop :poster="videoPoster">
-      <source
-        :src="`${ DAPHINE_URL }/stream?video=${ videoName }.webm`"
-        type="video/webm; codecs=vp9,vorbis"
-      />
-      <source :src="`${ DAPHINE_URL }/stream?video=${ videoName }.mp4`" type="video/mp4" />
-    </video>
-    <footer>
-      <a id="link" href="/">
-        <img :src="footerImage" alt="home">
-      </a>
-    </footer>
+      <video ref="videoEl" autoplay controls playsinline loop :poster="videoPoster">
+        <source
+          :src="`${ DAPHINE_URL }/stream?video=${ videoName }.webm`"
+          type="video/webm; codecs=vp9,vorbis"
+        />
+        <source :src="`${ DAPHINE_URL }/stream?video=${ videoName }.mp4`" type="video/mp4" />
+      </video>
+      <footer>
+        <RouterLink id="link" to="/">
+          <img :src="footerImage" alt="home">
+        </RouterLink>
+      </footer>
     </div>
     
   </section>

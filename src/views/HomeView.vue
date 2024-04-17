@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 
+import { useMediaStore } from '@/stores/mediaStore';
 import { imageLoader } from '@/utils/imageLoader';
 
 import LoadingScreen from '@/components/LoadingScreen.vue';
@@ -9,17 +10,21 @@ import ImageLink from '@/components/ImageLink.vue';
 const isLoading = ref(true);
 const { loadImages, progress } = imageLoader();
 
-const isSereneVisible = ref(false);
-const audioButtonVisible = ref(true);
+const mediaStore = useMediaStore();
+const config = mediaStore.getConfig('home');
+const isSereneVisible = computed(() => mediaStore.routes.home.isVisible);
 
 let audioEl: HTMLAudioElement | null = null;
+const SONG_ENDPOINT = '/music?song=sea-view-gardens.ogg'
 
 function handleClick() {
-  isSereneVisible.value = true;
-  audioButtonVisible.value = false;
+  if ( config ) {
+    mediaStore.toggleVisibility('home', true);
 
-  if ( audioEl ) {
-    audioEl.play();
+    if ( audioEl ) {
+      audioEl.currentTime = mediaStore.routes.home.lastTime; // Resume from the last saved time
+      audioEl.play();
+    }
   }
 }
 
@@ -43,7 +48,24 @@ async function loadResources() {
 
 onMounted(() => {
   loadResources();
-  audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }/music?song=sea-view-gardens.ogg`);
+
+  if ( config ) {
+    audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }${ SONG_ENDPOINT }`);
+    audioEl.loop = config.loop;
+
+    if ( mediaStore.routes.home.lastTime > 0 ) {
+      mediaStore.toggleVisibility('home', true);
+      audioEl.currentTime = mediaStore.routes.home.lastTime;
+      audioEl.play();
+    }
+  }
+});
+
+onBeforeUnmount(() => {
+  if ( audioEl ) {
+    mediaStore.setLastTime('home', audioEl.currentTime);
+    audioEl.pause();
+  }
 });
 </script>
 
