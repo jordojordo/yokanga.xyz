@@ -1,11 +1,14 @@
-FROM node:20-alpine AS build-stage
+FROM node:22-alpine AS build-stage
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 ARG VITE_DAPHINE_URL
 ENV VITE_DAPHINE_URL=$VITE_DAPHINE_URL
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN pnpm install
 COPY ./ .
-RUN VITE_DAPHINE_URL=$VITE_DAPHINE_URL npm run build
+RUN VITE_DAPHINE_URL=$VITE_DAPHINE_URL pnpm build
 
 FROM docker.io/nginx:latest as production-stage
 RUN mkdir /app

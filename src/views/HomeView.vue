@@ -15,7 +15,7 @@ const config = mediaStore.getConfig('home');
 const isSereneVisible = computed(() => mediaStore.routes.home.isVisible);
 
 let audioEl: HTMLAudioElement | null = null;
-const SONG_ENDPOINT = '/music?song=sea-view-gardens.ogg'
+const SONG_ENDPOINT = '/music?song=sea-view-gardens.ogg';
 
 function handleClick() {
   if ( config ) {
@@ -75,8 +75,8 @@ onBeforeUnmount(() => {
   </div>
   <main v-else id="main">
     <div>
-      <button 
-        id="audio-button" 
+      <button
+        id="audio-button"
         :class="{ hidden: isSereneVisible, flex: !isSereneVisible }"
         @click="handleClick"
       >

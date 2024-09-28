@@ -21,6 +21,6 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
 }
 
 :deep(#link:hover, #main video:hover) {
-  cursor: url(/images/m/circle.gif), pointer;
+  cursor: url(/images/m/circle.png), pointer;
 }
 </style>

@@ -8,11 +8,11 @@ const props = defineProps<{
   name: string;
   hoverSrc: string;
   alt: string;
-}>()
+}>();
 
 const hover = ref(false);
 
-const currentSrc = computed(() => hover.value ? props.hoverSrc : "/images/sea-view/serene.webp");
+const currentSrc = computed(() => hover.value ? props.hoverSrc : '/images/sea-view/serene.webp');
 </script>
 
 <template>
@@ -22,8 +22,8 @@ const currentSrc = computed(() => hover.value ? props.hoverSrc : "/images/sea-vi
     @mouseover="hover = true"
     @mouseleave="hover = false"
   >
-    <img 
-      :id="props.name" 
+    <img
+      :id="props.name"
       :src="currentSrc"
       :alt="props.alt"
     />

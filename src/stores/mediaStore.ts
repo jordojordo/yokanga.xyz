@@ -14,25 +14,25 @@ export const useMediaStore = defineStore('media', {
   state: (): AppState => ({
     routes: {
       home: {
-        lastTime: 0,
-        loop: true,
+        lastTime:  0,
+        loop:      true,
         isVisible: false
       },
       jerry: {
         lastTime: 0,
-        loop: false
+        loop:     false
       },
       based: {
         lastTime: 0,
-        loop: true
+        loop:     true
       },
       mystique: {
         lastTime: 0,
-        loop: false
+        loop:     false
       },
       picnic: {
         lastTime: 0,
-        loop: false
+        loop:     false
       }
     }
   }),

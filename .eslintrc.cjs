@@ -9,21 +9,12 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting'
   ],
-  overrides: [
-    {
-      files: [
-        'e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'
-      ],
-      'extends': [
-        'plugin:playwright/recommended'
-      ]
-    }
-  ],
   parserOptions: { ecmaVersion: 'latest' },
   'rules':       {
     'dot-notation':                   'off',
     'guard-for-in':                   'off',
     'new-cap':                        'off',
+    'no-console':                     'off',
     'no-empty':                       'off',
     'no-extra-boolean-cast':          'off',
     'no-new':                         'off',
@@ -55,7 +46,6 @@ module.exports = {
     'newline-per-chained-call':          ['warn', { 'ignoreChainWithDepth': 4 }],
     'no-caller':                         'warn',
     'no-cond-assign':                    ['warn', 'except-parens'],
-    'no-console':                        'warn',
     'no-debugger':                       'warn',
     'no-eq-null':                        'warn',
     'no-eval':                           'warn',

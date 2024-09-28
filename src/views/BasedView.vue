@@ -127,7 +127,7 @@ onBeforeUnmount(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #060606 url(../images/b/diag.png);
+  background: #060606 url(/images/b/diag.png);
   animation: slide 30s linear infinite;
   -webkit-animation: slide 30s linear infinite;
 }
