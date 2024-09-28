@@ -5,7 +5,8 @@ import { saveImage, getImage } from '@/db';
 export const imageLoader = () => {
   const progress = ref(0);
 
-  const loadImages = async (urls: string[], onProgress?: (progress: number) => void): Promise<string[]> => {
+  // eslint-disable-next-line no-unused-vars
+  const loadImages = async(urls: string[], onProgress?: (progress: number) => void): Promise<string[]> => {
     let loadedCount = 0;
 
     const updateProgress = () => {
@@ -16,28 +17,36 @@ export const imageLoader = () => {
       }
     };
 
-    const loadImage = async (url: string): Promise<string> => {
-      let cachedBlob = await getImage(url);
+    const loadImage = async(url: string): Promise<string> => {
+      const cachedBlob = await getImage(url);
+
       if (cachedBlob) {
         updateProgress();
+
         return URL.createObjectURL(cachedBlob);
       }
 
       try {
         const response = await fetch(url);
         const blob = await response.blob();
+
         await saveImage(url, blob);
         updateProgress();
+
         return URL.createObjectURL(blob);
       } catch (e) {
-        console.error(`Failed to load image ${url}: `, e);
+        console.error(`Failed to load image ${ url }: `, e);
         throw e;
       }
     };
 
     const promises = urls.map(loadImage);
+
     return Promise.all(promises);
   };
 
-  return { loadImages, progress };
+  return {
+    loadImages,
+    progress
+  };
 };

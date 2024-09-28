@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 export function preloadImages(images: string[], onProgress: (progress: number) => void): Promise<void[]> {
   let loadedCount = 0;
 
@@ -6,7 +7,7 @@ export function preloadImages(images: string[], onProgress: (progress: number) =
     onProgress((loadedCount / images.length) * 100);
   };
 
-  const promises = images.map(path => new Promise<void>((resolve, reject) => {
+  const promises = images.map((path) => new Promise<void>((resolve, reject) => {
     const img = new Image();
 
     img.onload = () => {
@@ -14,8 +15,8 @@ export function preloadImages(images: string[], onProgress: (progress: number) =
       resolve();
     };
 
-    img.onerror = e => {
-      console.error(`Error preloading: ${path}`, e);
+    img.onerror = (e) => {
+      console.error(`Error preloading: ${ path }`, e);
       updateProgress();
       reject(e);
     };

@@ -25,7 +25,7 @@ const videoPoster = '/images/static.webp';
 
 const mediaStore = useMediaStore();
 const videoEl = ref<HTMLVideoElement | null>(null);
-const VIDEO_ENDPOINT = `/stream?video=${ props.videoName }.webm`
+const VIDEO_ENDPOINT = `/stream?video=${ props.videoName }.webm`;
 
 async function loadResources() {
   const images = [
@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
   }
 });
 
-watch(videoEl, (newVal, oldVal) => {
+watch(videoEl, (newVal) => {
   if ( newVal ) {
     newVal.onended = () => {
       if ( mediaStore.routes[`${ routeName }`].loop ) {
@@ -91,7 +91,7 @@ watch(videoEl, (newVal, oldVal) => {
         </RouterLink>
       </footer>
     </div>
-    
+
   </section>
 </template>
 
