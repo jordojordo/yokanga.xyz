@@ -10,7 +10,13 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --fix"
+    "lint:oxlint": "oxlint . -D correctness --ignore-path .gitignore",
+    "lint:oxlint:fix": "oxlint . --fix -D correctness --ignore-path .gitignore",
+    "lint:eslint": "eslint . --cache",
+    "lint:eslint:fix": "eslint . --fix --cache",
+    "lint": "run-s lint:*",
+    "lint:fix": "run-s lint:*:fix",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "dexie": "^4.3.0",
@@ -21,6 +27,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.16.1",
+    "@stylistic/eslint-plugin": "^5.9.0",
     "@tsconfig/node20": "^20.1.9",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.3.0",
@@ -29,8 +36,11 @@
     "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^10.0.2",
+    "eslint-plugin-oxlint": "^1.50.0",
     "eslint-plugin-vue": "^10.8.0",
+    "jiti": "^2.6.1",
     "npm-run-all2": "^8.0.4",
+    "oxlint": "^1.50.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
