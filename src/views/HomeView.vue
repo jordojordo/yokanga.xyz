@@ -12,17 +12,17 @@ const { loadImages, progress } = imageLoader();
 
 const mediaStore = useMediaStore();
 const config = mediaStore.getConfig('home');
-const isSereneVisible = computed(() => mediaStore.routes.home.isVisible);
+const isSereneVisible = computed(() => mediaStore.routes.home?.isVisible);
 
 let audioEl: HTMLAudioElement | null = null;
 const SONG_ENDPOINT = '/music?song=sea-view-gardens.ogg';
 
 function handleClick() {
-  if ( config ) {
+  if (config) {
     mediaStore.toggleVisibility('home', true);
 
-    if ( audioEl ) {
-      audioEl.currentTime = mediaStore.routes.home.lastTime; // Resume from the last saved time
+    if (audioEl) {
+      audioEl.currentTime = mediaStore.routes.home?.lastTime ?? 0; // Resume from the last saved time
       audioEl.play();
     }
   }
@@ -49,20 +49,20 @@ async function loadResources() {
 onMounted(() => {
   loadResources();
 
-  if ( config ) {
+  if (config) {
     audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }${ SONG_ENDPOINT }`);
     audioEl.loop = config.loop;
 
-    if ( mediaStore.routes.home.lastTime > 0 ) {
+    if ((mediaStore.routes.home?.lastTime ?? 0) > 0) {
       mediaStore.toggleVisibility('home', true);
-      audioEl.currentTime = mediaStore.routes.home.lastTime;
+      audioEl.currentTime = mediaStore.routes.home?.lastTime ?? 0;
       audioEl.play();
     }
   }
 });
 
 onBeforeUnmount(() => {
-  if ( audioEl ) {
+  if (audioEl) {
     mediaStore.setLastTime('home', audioEl.currentTime);
     audioEl.pause();
   }
@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
       </div>
       <div id="exit">
         <a id="helm" href="https://hermes.yokanga.xyz">
-          <img src="/images/sea-view/helm.gif" alt="follow me to serenity"/>
+          <img src="/images/sea-view/helm.gif" alt="follow me to serenity" />
         </a>
       </div>
     </div>
@@ -129,7 +129,7 @@ onBeforeUnmount(() => {
 
 #main {
   height: auto;
-  background: repeat url("/images/sea-view/water.gif") hsl(0, 0%, 2%);
+  background: repeat url('/images/sea-view/water.gif') hsl(0, 0%, 2%);
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,7 +1,7 @@
 import type { Component } from 'vue';
 
 export interface RouteMetadata {
-  title: string;
+  title:       string;
   description: string;
 }
 
@@ -14,18 +14,18 @@ export interface RoutesMeta {
 }
 
 export interface MetaTag {
-  name: string;
+  name:    string;
   content: string;
 }
 
 export interface RouteMeta {
-  title: string;
+  title:     string;
   metaTags?: MetaTag[];
 }
 
 export interface RouteRecordRawWithMeta {
-  path: string;
-  name: string;
-  component: Component
-  meta?: RouteMeta;
+  path:      string;
+  name:      string;
+  component: Component;
+  meta?:     RouteMeta;
 }

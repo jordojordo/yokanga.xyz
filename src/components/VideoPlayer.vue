@@ -8,10 +8,10 @@ import { imageLoader } from '@/utils/imageLoader';
 import LoadingScreen from '@/components/LoadingScreen.vue';
 
 const props = defineProps<{
-  videoName: string;
-  footerImage: string;
+  videoName:       string;
+  footerImage:     string;
   backgroundImage: string;
-  cursorImage: string;
+  cursorImage:     string;
 }>();
 
 const route = useRoute();
@@ -28,12 +28,7 @@ const videoEl = ref<HTMLVideoElement | null>(null);
 const VIDEO_ENDPOINT = `/stream?video=${ props.videoName }.webm`;
 
 async function loadResources() {
-  const images = [
-    props.footerImage,
-    props.backgroundImage,
-    props.cursorImage,
-    videoPoster
-  ];
+  const images = [props.footerImage, props.backgroundImage, props.cursorImage, videoPoster];
 
   try {
     await loadImages(images);
@@ -45,10 +40,10 @@ async function loadResources() {
 onMounted(async() => {
   await loadResources();
 
-  if ( routeName ) {
+  if (routeName) {
     const config = mediaStore.getConfig(routeName);
 
-    if ( config && videoEl.value ) {
+    if (config && videoEl.value) {
       videoEl.value.src = `${ DAPHINE_URL }${ VIDEO_ENDPOINT }`;
       videoEl.value.currentTime = config.lastTime;
 
@@ -58,15 +53,15 @@ onMounted(async() => {
 });
 
 onBeforeUnmount(() => {
-  if ( videoEl.value ) {
+  if (videoEl.value) {
     mediaStore.setLastTime(`${ routeName }`, videoEl.value.currentTime);
   }
 });
 
 watch(videoEl, (newVal) => {
-  if ( newVal ) {
+  if (newVal) {
     newVal.onended = () => {
-      if ( mediaStore.routes[`${ routeName }`].loop ) {
+      if (mediaStore.routes[`${ routeName }`]?.loop) {
         newVal.play();
       }
     };
@@ -80,18 +75,17 @@ watch(videoEl, (newVal) => {
     <div class="video-container">
       <video ref="videoEl" autoplay controls playsinline loop :poster="videoPoster">
         <source
-          :src="`${ DAPHINE_URL }/stream?video=${ videoName }.webm`"
+          :src="`${DAPHINE_URL}/stream?video=${videoName}.webm`"
           type="video/webm; codecs=vp9,vorbis"
         />
-        <source :src="`${ DAPHINE_URL }/stream?video=${ videoName }.mp4`" type="video/mp4" />
+        <source :src="`${DAPHINE_URL}/stream?video=${videoName}.mp4`" type="video/mp4" />
       </video>
       <footer>
         <RouterLink id="link" to="/">
-          <img :src="footerImage" alt="home">
+          <img :src="footerImage" alt="home" />
         </RouterLink>
       </footer>
     </div>
-
   </section>
 </template>
 

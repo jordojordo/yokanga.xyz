@@ -10,7 +10,7 @@ routes:
     description: "Corruption runs rampant in the den. You're going to need something sharp."
   mystique:
     title: Morose Mystics
-    description: "A Mozart concerto, a pint of ale, a classic red jaguar, and a murder. Inspector Morse returns in a tale which combines the foreign and familiar."
+    description: 'A Mozart concerto, a pint of ale, a classic red jaguar, and a murder. Inspector Morse returns in a tale which combines the foreign and familiar.'
   picnic:
     title: Feral Freedom
-    description: "Pack, travel, post, and enjoy. The four steps to true serenity have been granted, protect your right to consume by writing to your local yokangaman."
+    description: 'Pack, travel, post, and enjoy. The four steps to true serenity have been granted, protect your right to consume by writing to your local yokangaman.'

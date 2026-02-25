@@ -13,7 +13,7 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
 
 <style scoped>
 :deep(.video-container) {
-  background: repeat url("/images/j/down.gif") hsl(0, 0%, 2%);
+  background: repeat url('/images/j/down.gif') hsl(0, 0%, 2%);
   background-size: 6.25px 3.125px;
 }
 
