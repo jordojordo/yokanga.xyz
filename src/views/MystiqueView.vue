@@ -13,13 +13,13 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
 
 <style scoped>
 :deep(.video-container) {
-  background: repeat url("/images/m/cross.png") hsl(0, 0%, 2%);
+  background: repeat url('/images/m/cross.png') hsl(0, 0%, 2%);
   animation: slide 13s linear infinite;
   -webkit-animation: slide 13s linear infinite;
 }
 
 :deep(.video-container video) {
-  box-shadow: -19px 17px #3B2D0E;
+  box-shadow: -19px 17px #3b2d0e;
 }
 
 :deep(#link:hover, #main video:hover) {

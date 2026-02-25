@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 
 interface MediaState {
-  lastTime: number;
-  loop: boolean;
+  lastTime:   number;
+  loop:       boolean;
   isVisible?: boolean;
 }
 
@@ -38,7 +38,7 @@ export const useMediaStore = defineStore('media', {
   }),
   actions: {
     setLastTime(route: string, time: number) {
-      if ( this.routes[route] ) {
+      if (this.routes[route]) {
         this.routes[route].lastTime = time;
       }
     },
@@ -46,7 +46,7 @@ export const useMediaStore = defineStore('media', {
       return this.routes[route] || null;
     },
     toggleVisibility(route: string, visible: boolean) {
-      if ( this.routes[route] ) {
+      if (this.routes[route]) {
         this.routes[route].isVisible = visible;
       }
     }

@@ -4,15 +4,15 @@ import { ref, computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const props = defineProps<{
-  target: string;
-  name: string;
+  target:   string;
+  name:     string;
   hoverSrc: string;
-  alt: string;
+  alt:      string;
 }>();
 
 const hover = ref(false);
 
-const currentSrc = computed(() => hover.value ? props.hoverSrc : '/images/sea-view/serene.webp');
+const currentSrc = computed(() => (hover.value ? props.hoverSrc : '/images/sea-view/serene.webp'));
 </script>
 
 <template>
@@ -22,11 +22,7 @@ const currentSrc = computed(() => hover.value ? props.hoverSrc : '/images/sea-vi
     @mouseover="hover = true"
     @mouseleave="hover = false"
   >
-    <img
-      :id="props.name"
-      :src="currentSrc"
-      :alt="props.alt"
-    />
+    <img :id="props.name" :src="currentSrc" :alt="props.alt" />
   </RouterLink>
 </template>
 

@@ -15,8 +15,8 @@ let audioEl: HTMLAudioElement | null = null;
 const SONG_ENDPOINT = '/music?song=akiko.ogg';
 
 function handleClick() {
-  if ( audioEl ) {
-    if ( audioEl.paused ) {
+  if (audioEl) {
+    if (audioEl.paused) {
       audioEl.play();
     } else {
       audioEl.pause();
@@ -25,9 +25,7 @@ function handleClick() {
 }
 
 async function loadResources() {
-  const images = [
-    '/images/b/gundam.gif',
-  ];
+  const images = ['/images/b/gundam.gif'];
 
   try {
     await loadImages(images);
@@ -40,19 +38,19 @@ onMounted(() => {
   loadResources();
   const config = mediaStore.getConfig('based');
 
-  if ( config ) {
+  if (config) {
     audioEl = new Audio(`${ import.meta.env.VITE_DAPHINE_URL }${ SONG_ENDPOINT }`);
     audioEl.loop = config.loop;
 
-    if ( mediaStore.routes.based.lastTime > 0 ) {
-      audioEl.currentTime = mediaStore.routes.based.lastTime;
+    if ((mediaStore.routes.based?.lastTime ?? 0) > 0) {
+      audioEl.currentTime = mediaStore.routes.based?.lastTime ?? 0;
       audioEl.play();
     }
   }
 });
 
 onBeforeUnmount(() => {
-  if ( audioEl ) {
+  if (audioEl) {
     mediaStore.setLastTime('based', audioEl.currentTime);
     audioEl.pause();
   }
@@ -133,7 +131,6 @@ onBeforeUnmount(() => {
 }
 
 @keyframes color-change {
-
   0%,
   100% {
     color: #33a81d;
@@ -166,10 +163,7 @@ footer .link:hover {
   height: 100%;
   margin: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 120%,
-      #f9fbea,
-      #c6b17d 80%,
-      #99642d 100%);
+  background: radial-gradient(circle at 50% 120%, #f9fbea, #c6b17d 80%, #99642d 100%);
 }
 
 footer {

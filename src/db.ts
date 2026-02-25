@@ -1,7 +1,7 @@
 import Dexie from 'dexie';
 
 interface ImageEntry {
-  url: string;
+  url:  string;
   blob: Blob;
 }
 

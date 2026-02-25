@@ -13,7 +13,7 @@ import VideoPlayer from '@/components/VideoPlayer.vue';
 
 <style scoped>
 :deep(.video-container) {
-  background: repeat url("/images/p/usflag.gif") hsl(240, 50%, 60%);
+  background: repeat url('/images/p/usflag.gif') hsl(240, 50%, 60%);
 }
 
 :deep(.video-container video) {
