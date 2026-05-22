@@ -1,9 +1,9 @@
 {
   "name": "yokanga",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.30.2",
+  "packageManager": "pnpm@11.2.2",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -18,30 +18,30 @@
     "lint:fix": "run-s lint:*:fix"
   },
   "dependencies": {
-    "dexie": "^4.3.0",
+    "dexie": "^4.4.2",
     "js-yaml": "^4.1.1",
     "pinia": "^3.0.4",
-    "vue": "^3.5.29",
-    "vue-router": "^5.0.3"
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^5.9.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "@tsconfig/node20": "^20.1.9",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^25.3.0",
-    "@vitejs/plugin-vue": "^6.0.4",
+    "@types/node": "^25.9.1",
+    "@vitejs/plugin-vue": "^6.0.7",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.7.0",
-    "@vue/tsconfig": "^0.8.1",
-    "eslint": "^10.0.2",
-    "eslint-plugin-oxlint": "^1.50.0",
-    "eslint-plugin-vue": "^10.8.0",
-    "jiti": "^2.6.1",
-    "npm-run-all2": "^8.0.4",
-    "oxlint": "^1.50.0",
-    "prettier": "^3.8.1",
-    "typescript": "~5.9.3",
-    "vite": "^7.3.1",
-    "vue-tsc": "^3.2.5"
+    "@vue/tsconfig": "^0.9.1",
+    "eslint": "^10.4.0",
+    "eslint-plugin-oxlint": "^1.66.0",
+    "eslint-plugin-vue": "^10.9.1",
+    "jiti": "^2.7.0",
+    "npm-run-all2": "^9.0.0",
+    "oxlint": "^1.66.0",
+    "prettier": "^3.8.3",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.14",
+    "vue-tsc": "^3.3.1"
   }
 }
