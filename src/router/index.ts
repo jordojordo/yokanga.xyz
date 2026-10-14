@@ -1,13 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHistory } from 'vue-router';
-import jsYaml from 'js-yaml';
+import { load } from 'js-yaml';
 
 import type { RoutesMeta, RouteRecordRawWithMeta, MetaTag } from '@/types/routes';
 
 import en from '@/assets/data/en.yaml?raw';
 import HomeView from '@/views/HomeView.vue';
 
-const yaml = jsYaml.load(en) as RoutesMeta;
+const yaml = load(en) as RoutesMeta;
 const routeMeta = yaml.routes;
 
 const routes: Array<RouteRecordRaw & RouteRecordRawWithMeta> = [
